@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Project Overview – [Your Project Name]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>[Project Title]</h1>
+      <p class="subtitle">
+        [Short 1–2 sentence description: region, method, main question]
+      </p>
+      <nav class="nav">
+        <a href="#overview">Overview</a>
+        <a href="#methods">Methods</a>
+        <a href="#maps">Maps</a>
+        <a href="#figures">Figures</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Overview -->
+    <section id="overview" class="section">
+      <div class="container">
+        <h2>Project Overview</h2>
+        <p>
+          [1–2 paragraphs describing the motivation, questions, and study area.
+          You can use <strong>bold</strong> or <em>italics</em> as needed.]
+        </p>
+      </div>
+    </section>
+
+    <!-- Methods -->
+    <section id="methods" class="section section-alt">
+      <div class="container">
+        <h2>Data & Methods</h2>
+        <ul>
+          <li><strong>Data:</strong> [e.g., NHTS 2022, SafeGraph/DeweyData, ACS, etc.]</li>
+          <li><strong>Methods:</strong> [e.g., multinomial logit, SARAR, spatial QR]</li>
+          <li><strong>Study area:</strong> [e.g., Georgia, Atlanta MSA, etc.]</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Maps -->
+    <section id="maps" class="section">
+      <div class="container">
+        <h2>Maps</h2>
+
+        <!-- Static map gallery -->
+        <div class="grid">
+          <figure class="card">
+            <img src="img/map1.png" alt="Map 1 description" />
+            <figcaption>
+              <strong>Map 1.</strong> [Short caption about what this map shows.]
+            </figcaption>
+          </figure>
+
+          <figure class="card">
+            <img src="img/map2.png" alt="Map 2 description" />
+            <figcaption>
+              <strong>Map 2.</strong> [Short caption.]
+            </figcaption>
+          </figure>
+
+          <!-- Add more <figure> blocks as needed -->
+        </div>
+
+        <!-- Optional: interactive maps exported as HTML -->
+        <div class="interactive-maps">
+          <h3>Interactive Maps</h3>
+          <p>Pan and zoom to explore the patterns.</p>
+
+          <div class="iframe-wrapper">
+            <iframe
+              src="maps/evac_map.html"
+              title="Interactive Evacuation Map"
+              loading="lazy"
+            ></iframe>
+          </div>
+
+          <!-- Another interactive map -->
+          <!--
+          <div class="iframe-wrapper">
+            <iframe
+              src="maps/heatmap.html"
+              title="Heatmap"
+              loading="lazy"
+            ></iframe>
+          </div>
+          -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Figures -->
+    <section id="figures" class="section section-alt">
+      <div class="container">
+        <h2>Figures & Results</h2>
+        <div class="grid">
+          <figure class="card">
+            <img src="img/figure1.png" alt="Figure 1 description" />
+            <figcaption>
+              <strong>Figure 1.</strong> [e.g., Quantile regression results showing
+              social tie effects.]
+            </figcaption>
+          </figure>
+
+          <!-- Add more figures as needed -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / Footer -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>
+          [Your name] &middot; [Affiliation]<br />
+          Email: <a href="mailto:youremail@example.com">youremail@example.com</a><br />
+          GitHub: <a href="https://github.com/your-username" target="_blank">
+            @your-username
+          </a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> [Your Name]. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Auto-update footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
