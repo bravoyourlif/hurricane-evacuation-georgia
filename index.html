@@ -2,144 +2,324 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Project Overview – [Your Project Name]</title>
+  <title>Where Do Evacuees Go? – Hurricane Milton</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
-<body>
-  <header class="site-header">
-    <div class="container">
-      <h1>[Project Title]</h1>
-      <p class="subtitle">
-        [Short 1–2 sentence description: region, method, main question]
-      </p>
-      <nav class="nav">
-        <a href="#overview">Overview</a>
-        <a href="#methods">Methods</a>
-        <a href="#maps">Maps</a>
-        <a href="#figures">Figures</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
 
-  <main>
+<body>
+  <!-- Side navigation -->
+  <nav class="side-nav">
+    <img src="img/GTlogo.png"
+     alt="Georgia Tech logo"
+     class="site-logo" />
+
+    <div class="side-nav-top">
+      <a href="#overview">Overview</a>
+      <a href="#data">Data &amp; Study Area</a>
+      <a href="#visitor-change">Visitor Share Change</a>
+      <a href="#quantile-regression">Quantile Regression</a>
+      <a href="#model-fit">Model Fit</a>
+      <a href="#spatial-patterns">Spatial Patterns</a>
+      <a href="#determinants">Determinants</a>
+      <a href="#paper">Paper</a>
+    </div>
+
+    <div class="side-nav-footer">
+      <img src="img/profile.jpg" alt="Profile photo" class="profile-pic" />
+      <div class="profile-text">
+        <div class="profile-name">Chaeyeon Han</div>
+        <div class="profile-date">Created: 2025</div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <main class="main-content">
+    <h1 class="site-title">Where Do Evacuees Go? Understanding Evacuation Destinations in Georgia during Hurricane Milton </h1>
+    <h4> <strong>Authors </strong>: Chaeyeon Han, Subhrajit Guhathakurta</br>
+      School of City and Regional Planning, Georgia Institute of Technology, Atlanta, GA, USA</h4>
+    <!-- Overview -->
     <!-- Overview -->
     <section id="overview" class="section">
+      <div class="container overview-layout">
+        <div class="overview-text">
+          <h2>💡 Overview</h2>
+          <p>
+            Hurricane Milton triggered large-scale population movements from Florida into
+            neighboring states, with Georgia emerging as one of the most important receiving
+            regions. This project investigates where evacuees traveled during the event and
+            why certain places attracted more visitors than others.
+          </p>
+          <p>
+            Using high-resolution mobility data and county-level social connection
+            measures, we analyze both spatial patterns and behavioral mechanisms shaping
+            evacuation destination choices. Two questions guide the analysis:
+          </p>
+          <ul>
+            <li><strong>R1:</strong> Which locations in Georgia experienced notable increases in visitor activity during Hurricane Milton?</li>
+            <li><strong>R2:</strong> How did evacuation orders and social ties influence evacuees’ destination choices?</li>
+          </ul>
+          <p>
+            The findings provide new insights into how infrastructure, amenities, and
+            social networks interact to direct climate-induced population movements.
+          </p>
+        </div>
+
+        <figure class="overview-image">
+          <img src="img/Daytona_beach.jpg"
+               alt="Heavy evacuation traffic on a Florida highway"/>
+          <figcaption>
+            Traffic congestion on a Florida highway during hurricane evacuation.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+
+    <!-- Data & Study Area -->
+    <section id="data" class="section">
       <div class="container">
-        <h2>Project Overview</h2>
+        <h2>🗺️ Data &amp; Study Area</h2>
         <p>
-          [1–2 paragraphs describing the motivation, questions, and study area.
-          You can use <strong>bold</strong> or <em>italics</em> as needed.]
+          We draw on anonymized, device-based mobility traces aggregated to the census-tract level
+          to estimate weekly visitation flows from Florida to Georgia. Baseline mobility conditions
+          are captured by weekday-specific average visit counts outside the hurricane period, which
+          serve as a prediction of expected activity. Deviations from these predicted values reveal
+          anomalous increases associated with Hurricane Milton.
+        </p>
+        <p>
+          Florida’s coastline is organized into evacuation zones that differ in exposure to storm
+          surge and wind hazards. Hurricane Milton’s track and uncertainty cone intersect several
+          of these zones, leading to mandatory evacuation orders in the most vulnerable tracts.
+          These areas become the primary origins of evacuees traveling toward Georgia.
+        </p>
+
+        <figure class="card">
+          <img src="img/Image1.png" alt="Time series of observed and predicted visits" />
+          <figcaption>
+            <strong>Figure 1.</strong> Observed versus predicted total visits in Florida
+            before, during, and after Hurricane Milton. Shaded periods highlight weeks
+            with hurricane-related disruptions.
+          </figcaption>
+        </figure>
+
+        <figure class="card">
+          <img src="img/Image3.png" alt="Hurricane Milton trajectory and evacuation zones" />
+          <figcaption>
+            <strong>Figure 2.</strong> Hurricane Milton trajectory, forecast cone, and
+            census tracts in Florida under mandatory evacuation orders. These evacuation
+            zones are key origins of evacuees heading to Georgia.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Visitor Share Change -->
+    <section id="visitor-change" class="section">
+      <div class="container">
+        <h2>🧑🏻‍🤝‍🧑🏻 Visitor Share Change in Georgia</h2>
+        <p>
+          To quantify how destinations in Georgia were affected, we compute
+          <em>visitor share change</em> for each census tract. This metric measures how much
+          a tract’s share of visitors from Florida increased during the hurricane week
+          relative to its typical share under normal conditions.
+        </p>
+        <p>
+          As shown in the histogram below, most tracts experienced modest changes, but a
+          small subset saw disproportionately large increases. This heavy right tail
+          indicates that evacuees did not disperse evenly; instead, they concentrated in a
+          limited number of locations that offered better accessibility, amenities, or
+          existing social ties.
+        </p>
+
+        <figure class="card">
+          <img src="img/Image2.png" alt="Histogram of visitor share change in Georgia tracts" />
+          <figcaption>
+            <strong>Figure 3.</strong> Distribution of visitor share change for Georgia
+            census tracts during Hurricane Milton. A small number of tracts show extreme
+            increases in visitor share.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Why Quantile Regression -->
+        <section id="quantile-regression" class="section">
+          <div class="container">
+            <h2>🛠️ Quantile Regression Analysis</h2>
+            <p>
+              The distribution of visitor share change is highly skewed: most tracts see only
+              small shifts, while a limited number experience very large surges. A standard
+              linear regression focuses on the mean and would mostly describe what happens in
+              “typical” tracts, potentially missing the dynamics that matter most for
+              evacuation planning—namely, the places that become hotspots.
+            </p>
+            <p>
+              Quantile regression is designed for this type of problem. Instead of estimating
+              how predictors affect the average outcome, it estimates their effects at
+              different points of the distribution (for example, the 10th, 50th, or 90th
+              percentile of visitor share change). This allows us to see how the role of
+              social ties, accessibility, or amenities changes between lightly affected areas
+              and those experiencing extreme increases in evacuee arrivals.
+            </p>
+            <p>
+              This approach is well suited to evacuation data for several reasons:
+            </p>
+            <ul>
+              <li>
+                It captures <strong>heterogeneous effects</strong>, showing that some factors
+                matter mainly for high-visitor tracts rather than everywhere.
+              </li>
+              <li>
+                It is more robust to <strong>outliers and heavy tails</strong> than mean-based
+                models, which is important when a few tracts receive a disproportionate number
+                of evacuees.
+              </li>
+              <li>
+                It does not require constant variance of errors, making it appropriate when
+                variability grows with the level of visitor change.
+              </li>
+            </ul>
+            <p>
+              Interpretation follows the same logic: a positive coefficient for a variable at
+              the 0.9 quantile means that, holding other variables constant, an increase in
+              that variable raises the 90th percentile of visitor share change. If the same
+              coefficient is close to zero at the median, we learn that the factor is
+              especially important for <em>high-impact</em> destinations rather than for the
+              average tract. This perspective helps identify which characteristics are most
+              strongly associated with becoming an evacuation hotspot.
+            </p>
+          </div>
+        </section>
+    <!-- Model Fit -->
+    <section id="model-fit" class="section">
+      <div class="container">
+        <h2>Model Fit Across Quantiles</h2>
+        <p>
+          The pseudo R² values displayed below show that model fit is lowest near the
+          middle of the distribution but improves substantially in higher quantiles. This
+          pattern suggests that the model is particularly effective at explaining the
+          locations where visitor surges were most pronounced.
+        </p>
+
+        <figure class="card">
+          <img src="img/Image4.png" alt="Pseudo R-squared across quantiles" />
+          <figcaption>
+            <strong>Figure 4.</strong> Pseudo R² of the quantile regression model across
+            quantiles of visitor share change. Fit improves for higher quantiles, where
+            visitor concentration is most extreme.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Spatial Patterns -->
+    <section id="spatial-patterns" class="section">
+      <div class="container">
+        <h2>🌊 Spatial Patterns of Evacuation Origins</h2>
+        <p>
+          To capture differences in behavior, we distinguish Florida origin tracts that
+          were under mandatory evacuation orders from those without such orders.
+          Aggregating visitor share changes by these categories reveals distinct spatial
+          footprints across Georgia.
+        </p>
+        <p>
+          Tracts in Georgia that show high visitor share increases are more strongly
+          connected to origins with mandatory orders, indicating that formal directives
+          played an important role in concentrating flows. In contrast, evacuees from
+          non-mandatory areas tend to be distributed more broadly across the state.
+        </p>
+
+        <figure class="card">
+          <img src="img/Image5.png" alt="Visitor share change maps by evacuation status" />
+          <figcaption>
+            <strong>Figure 5.</strong> Visitor share change for Georgia census tracts,
+            separated by origins with (left) and without (right) mandatory evacuation
+            orders in Florida. Darker colors indicate higher quantiles of visitor share
+            change.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Determinants -->
+    <section id="determinants" class="section">
+      <div class="container">
+        <h2>🔍 Determinants of Visitor Concentration</h2>
+        <p>
+          The quantile regression results provide a detailed picture of what drives
+          evacuees toward particular destinations in Georgia.
+        </p>
+        <figure class="card">
+          <img src="img/Image7-1.png" alt="Quantile regression coefficients for key variables" style="max-width:600px"/>
+          <figcaption>
+            <strong>Figure 7-1.</strong> Quantile regression coefficients for social ties across
+            the visitor share distribution. Shaded bands show confidence intervals.
+          </figcaption>
+        </figure>
+        <p>
+          <strong>Social ties</strong> play a central role: tracts with stronger
+          county-to-county social connections to Florida origins attract significantly
+          more evacuees, particularly at upper quantiles. This highlights how personal
+          networks guide destination choice when uncertainty is high.
+        </p>
+        <figure class="card">
+          <img src="img/Image7-3.png" alt="Quantile regression coefficients for key variables" style="max-width:950px"/>
+          <figcaption>
+            <strong>Figure 7-2.</strong> Quantile regression coefficients for distance measures across
+            the visitor share distribution. Shaded bands show confidence intervals.
+          </figcaption>
+        </figure>
+        <p>
+          <strong>Distance and accessibility</strong> measures also matter. Greater
+          distance from the storm’s trajectory is associated with slightly higher visitor
+          shares, reflecting risk avoidance. Proximity to major economic centers and to
+          the Atlanta airport has strong positive effects in higher quantiles, suggesting
+          that evacuees prefer well-connected locations.
+        </p>
+        <figure class="card">
+          <img src="img/Image7-2.png" alt="Quantile regression coefficients for key variables" style="max-width:950px"/>
+          <figcaption>
+            <strong>Figure 7-3.</strong> Quantile regression coefficients for amenity counts across
+            the visitor share distribution. Shaded bands show confidence intervals.
+          </figcaption>
+        </figure>
+        <p>
+          Finally, <strong>amenities and local context</strong> shape concentration.
+          Hospitality infrastructure—especially hotels and malls—is positively associated
+          with visitor surges, while gas stations show weaker or even negative
+          relationships at the top of the distribution, possibly reflecting congestion or
+          fuel shortages. Higher-income destination tracts also tend to experience larger
+          increases among the most-visited locations.
         </p>
       </div>
     </section>
 
-    <!-- Methods -->
-    <section id="methods" class="section section-alt">
+    <!-- Paper info -->
+    <section id="paper" class="section">
       <div class="container">
-        <h2>Data & Methods</h2>
-        <ul>
-          <li><strong>Data:</strong> [e.g., NHTS 2022, SafeGraph/DeweyData, ACS, etc.]</li>
-          <li><strong>Methods:</strong> [e.g., multinomial logit, SARAR, spatial QR]</li>
-          <li><strong>Study area:</strong> [e.g., Georgia, Atlanta MSA, etc.]</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Maps -->
-    <section id="maps" class="section">
-      <div class="container">
-        <h2>Maps</h2>
-
-        <!-- Static map gallery -->
-        <div class="grid">
-          <figure class="card">
-            <img src="img/map1.png" alt="Map 1 description" />
-            <figcaption>
-              <strong>Map 1.</strong> [Short caption about what this map shows.]
-            </figcaption>
-          </figure>
-
-          <figure class="card">
-            <img src="img/map2.png" alt="Map 2 description" />
-            <figcaption>
-              <strong>Map 2.</strong> [Short caption.]
-            </figcaption>
-          </figure>
-
-          <!-- Add more <figure> blocks as needed -->
-        </div>
-
-        <!-- Optional: interactive maps exported as HTML -->
-        <div class="interactive-maps">
-          <h3>Interactive Maps</h3>
-          <p>Pan and zoom to explore the patterns.</p>
-
-          <div class="iframe-wrapper">
-            <iframe
-              src="maps/evac_map.html"
-              title="Interactive Evacuation Map"
-              loading="lazy"
-            ></iframe>
-          </div>
-
-          <!-- Another interactive map -->
-          <!--
-          <div class="iframe-wrapper">
-            <iframe
-              src="maps/heatmap.html"
-              title="Heatmap"
-              loading="lazy"
-            ></iframe>
-          </div>
-          -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Figures -->
-    <section id="figures" class="section section-alt">
-      <div class="container">
-        <h2>Figures & Results</h2>
-        <div class="grid">
-          <figure class="card">
-            <img src="img/figure1.png" alt="Figure 1 description" />
-            <figcaption>
-              <strong>Figure 1.</strong> [e.g., Quantile regression results showing
-              social tie effects.]
-            </figcaption>
-          </figure>
-
-          <!-- Add more figures as needed -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact / Footer -->
-    <section id="contact" class="section">
-      <div class="container">
-        <h2>Contact</h2>
+        <h2>Paper</h2>
         <p>
-          [Your name] &middot; [Affiliation]<br />
-          Email: <a href="mailto:youremail@example.com">youremail@example.com</a><br />
-          GitHub: <a href="https://github.com/your-username" target="_blank">
-            @your-username
+          <strong>Title:</strong>
+          <em>Where Do Evacuees Go? Understanding Evacuation Destinations in Georgia during Hurricane Milton</em>
+        </p>
+        <p>
+          <strong>Authors:</strong> Chaeyeon Han, Subhrajit Guhathakurta
+        </p>
+        <p>
+          <!-- Update the href once you have a PDF online or in a files/ folder -->
+          <a href="files/IJDRR_revised_manuscript_v2.pdf" target="_blank">
+            Download manuscript (PDF)
           </a>
         </p>
       </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
-    <div class="container">
-      <p>&copy; <span id="year"></span> [Your Name]. All rights reserved.</p>
-    </div>
+    <p>&copy; 2025 Chaeyeon Han. All rights reserved.</p>
   </footer>
-
-  <script>
-    // Auto-update footer year
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>

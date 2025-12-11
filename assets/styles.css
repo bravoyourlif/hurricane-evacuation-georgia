@@ -1,0 +1,223 @@
+/* Basic reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", sans-serif;
+  line-height: 1.5;
+  color: #222;
+  background-color: #ffffff; /* all white */
+}
+
+/* Layout helpers */
+.container {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+}
+
+/* Fixed side nav */
+.side-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 180px;
+  background: #ffffff;
+  border-right: 1px solid #ddd;
+  padding: 16px 12px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.side-nav-top .site-title {
+  font-size: 1rem;
+  margin: 0 0 12px 0;
+  font-weight: 600;
+}
+
+.side-nav a {
+  display: block;
+  margin: 5px 0;
+  color: #333;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.side-nav a:hover {
+  text-decoration: underline;
+}
+
+.site-logo {
+  width: 130px;          /* adjust as you like */
+  display: block;
+  margin: 0 auto 14px;   /* center + space below */
+}
+
+/* Sidebar footer / profile */
+.side-nav-footer {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-text {
+  line-height: 1.3;
+}
+
+.profile-name {
+  font-weight: 600;
+}
+
+.profile-date {
+  color: #777;
+  font-size: 0.75rem;
+}
+
+/* Overview layout: text + image side by side */
+.overview-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.overview-text {
+  flex: 2;
+}
+
+.overview-image {
+  flex: 1;
+  margin-top: 0;
+  max-width:250px;
+}
+
+.overview-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.overview-image figcaption {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+/* Main content pushed to the right of sidebar */
+.main-content {
+  margin-left: 200px; /* a bit larger than sidebar width */
+  padding: 1.5rem 1rem 2rem;
+  max-width: 1050px;
+}
+
+/* Sections */
+.section {
+  padding: 2.5rem 0;
+  background: #ffffff;
+}
+
+.section h2 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.section p,
+.section ul {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.section + .section {
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Card-style figures */
+figure.card {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  margin-top: 1.25rem;
+}
+
+figure.card img {
+  max-width: 100%;
+  display: block;
+  border-radius: 0.5rem;
+  margin-bottom: 0 auto 0.5rem;
+}
+
+figure.card figcaption {
+  font-size: 0.85rem;
+  color: #444;
+}
+
+/* Footer */
+.site-footer {
+  background: #ffffff;
+  color: #777;
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 0.8rem;
+  border-top: 1px solid #e0e0e0;
+  margin-left: 200px;
+}
+
+/* Small screens: stack layout */
+@media (max-width: 768px) {
+  .side-nav {
+     position: static;
+     width: 100%;
+     height: auto;
+     border-right: none;
+     border-bottom: 1px solid #ddd;
+     flex-direction: row;
+     flex-wrap: wrap;
+     gap: 8px;
+   }
+
+   .side-nav-top .site-title {
+     width: 100%;
+   }
+
+   .site-logo {
+     width: 100px;
+   }
+
+   .side-nav-footer {
+     display: none;
+   }
+
+   .main-content,
+   .site-footer {
+     margin-left: 0;
+   }
+  .overview-layout {
+    flex-direction: column;
+  }
+}
