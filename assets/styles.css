@@ -152,6 +152,10 @@ body {
   font-size: 0.95rem;
 }
 
+.section ul {
+  padding-left:1.25rem;
+}
+
 .section + .section {
   border-top: 1px solid #e0e0e0;
 }
@@ -163,13 +167,15 @@ figure.card {
   padding: 0.75rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   margin-top: 1.25rem;
+  text-align: center;
 }
 
 figure.card img {
   max-width: 100%;
   display: block;
   border-radius: 0.5rem;
-  margin-bottom: 0 auto 0.5rem;
+  margin: 0 auto 0.5rem;
+  align-items: center;
 }
 
 figure.card figcaption {

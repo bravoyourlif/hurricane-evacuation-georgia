@@ -16,12 +16,13 @@
 
     <div class="side-nav-top">
       <a href="#overview">Overview</a>
+      <a href="#spatial-patterns">Spatial Patterns</a>
       <a href="#data">Data &amp; Study Area</a>
       <a href="#visitor-change">Visitor Share Change</a>
       <a href="#quantile-regression">Quantile Regression</a>
       <a href="#model-fit">Model Fit</a>
-      <a href="#spatial-patterns">Spatial Patterns</a>
       <a href="#determinants">Determinants</a>
+      <a href="#discussion">Conclusion</a>
       <a href="#paper">Paper</a>
     </div>
 
@@ -76,7 +77,36 @@
       </div>
     </section>
 
+    <!-- Spatial Patterns -->
+    <section id="spatial-patterns" class="section">
+      <div class="container">
+        <h2>🌊 Spatial Patterns of Evacuation Origins</h2>
+        <p>
+          To capture differences in behavior, we distinguish Florida origin tracts that
+          were under mandatory evacuation orders from those without such orders.
+          Aggregating visitor share changes by these categories reveals distinct evacuation destinations across Georgia.
+        </p>
+        <p>
+          Tracts in Georgia that show high visitor share increases are more strongly
+          connected to origins with mandatory orders (hence darker shade areas in the left map). In contrast, evacuees from
+          non-mandatory areas tend to be distributed more broadly across the state.
+        </p>
 
+        <p>
+          Read below for our data, study area, and regression analyses results for determinants of destination choice!
+        </p>
+
+        <figure class="card">
+          <img src="img/Image5.png" alt="Visitor share change maps by evacuation status" />
+          <figcaption>
+            <strong>Figure 5.</strong> Visitor share change for Georgia census tracts,
+            separated by origins with (left) and without (right) mandatory evacuation
+            orders in Florida. Darker colors indicate higher quantiles of visitor share
+            change.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
     <!-- Data & Study Area -->
     <section id="data" class="section">
       <div class="container">
@@ -84,25 +114,26 @@
         <p>
           We draw on anonymized, device-based mobility traces aggregated to the census-tract level
           to estimate weekly visitation flows from Florida to Georgia. Baseline mobility conditions
-          are captured by weekday-specific average visit counts outside the hurricane period, which
-          serve as a prediction of expected activity. Deviations from these predicted values reveal
+          are captured by weekday-specific average visit counts three weeks prior to the hurricane period, which
+          serve as a prediction of baseline activity. Deviations from these predicted values reveal
           anomalous increases associated with Hurricane Milton.
-        </p>
-        <p>
-          Florida’s coastline is organized into evacuation zones that differ in exposure to storm
-          surge and wind hazards. Hurricane Milton’s track and uncertainty cone intersect several
-          of these zones, leading to mandatory evacuation orders in the most vulnerable tracts.
-          These areas become the primary origins of evacuees traveling toward Georgia.
         </p>
 
         <figure class="card">
-          <img src="img/Image1.png" alt="Time series of observed and predicted visits" />
+          <img src="img/Image1.png" alt="Time series of observed and predicted visits" style="max-width=900px;"/>
           <figcaption>
             <strong>Figure 1.</strong> Observed versus predicted total visits in Florida
             before, during, and after Hurricane Milton. Shaded periods highlight weeks
             with hurricane-related disruptions.
           </figcaption>
         </figure>
+
+        <p>
+          Florida Division of Emergency Management (FDEM) organizes evacuation zones in Florida that differ in exposure to storm
+          surge and wind hazards. Hurricane Milton’s track intersect several
+          of these zones. Based on news articles and county government agencies' announcements, we identified counties that issued mandatory evacuation orders for evacuation zones.
+          These areas become the primary origins of evacuees traveling toward Georgia.
+        </p>
 
         <figure class="card">
           <img src="img/Image3.png" alt="Hurricane Milton trajectory and evacuation zones" />
@@ -120,17 +151,16 @@
       <div class="container">
         <h2>🧑🏻‍🤝‍🧑🏻 Visitor Share Change in Georgia</h2>
         <p>
-          To quantify how destinations in Georgia were affected, we compute
+          To quantify how destinations in Georgia were affected, we computed
           <em>visitor share change</em> for each census tract. This metric measures how much
           a tract’s share of visitors from Florida increased during the hurricane week
-          relative to its typical share under normal conditions.
+          relative to its typical share under normal conditions. If a tract normally receives <em>n</em>% of visitors but receives
+          <em>(n + d)</em> % during the storm, the increase <em>d</em> captures the additional demand placed on that area.
         </p>
         <p>
           As shown in the histogram below, most tracts experienced modest changes, but a
           small subset saw disproportionately large increases. This heavy right tail
-          indicates that evacuees did not disperse evenly; instead, they concentrated in a
-          limited number of locations that offered better accessibility, amenities, or
-          existing social ties.
+          indicates that evacuees did not disperse evenly.
         </p>
 
         <figure class="card">
@@ -149,11 +179,10 @@
           <div class="container">
             <h2>🛠️ Quantile Regression Analysis</h2>
             <p>
-              The distribution of visitor share change is highly skewed: most tracts see only
-              small shifts, while a limited number experience very large surges. A standard
+              As seen in Figure 3, the distribution of visitor share change is highly skewed. However, a standard
               linear regression focuses on the mean and would mostly describe what happens in
               “typical” tracts, potentially missing the dynamics that matter most for
-              evacuation planning—namely, the places that become hotspots.
+              evacuation response, the places that become hotspots.
             </p>
             <p>
               Quantile regression is designed for this type of problem. Instead of estimating
@@ -190,6 +219,13 @@
               average tract. This perspective helps identify which characteristics are most
               strongly associated with becoming an evacuation hotspot.
             </p>
+
+            <figure class="card">
+              <img src="img/Image8.png" alt="Table of Explanatory Variables" style="max-width: 700px"/>
+              <figcaption>
+                <strong>Table 1.</strong> Explanatory Variables
+              </figcaption>
+            </figure>
           </div>
         </section>
     <!-- Model Fit -->
@@ -209,35 +245,6 @@
             <strong>Figure 4.</strong> Pseudo R² of the quantile regression model across
             quantiles of visitor share change. Fit improves for higher quantiles, where
             visitor concentration is most extreme.
-          </figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <!-- Spatial Patterns -->
-    <section id="spatial-patterns" class="section">
-      <div class="container">
-        <h2>🌊 Spatial Patterns of Evacuation Origins</h2>
-        <p>
-          To capture differences in behavior, we distinguish Florida origin tracts that
-          were under mandatory evacuation orders from those without such orders.
-          Aggregating visitor share changes by these categories reveals distinct spatial
-          footprints across Georgia.
-        </p>
-        <p>
-          Tracts in Georgia that show high visitor share increases are more strongly
-          connected to origins with mandatory orders, indicating that formal directives
-          played an important role in concentrating flows. In contrast, evacuees from
-          non-mandatory areas tend to be distributed more broadly across the state.
-        </p>
-
-        <figure class="card">
-          <img src="img/Image5.png" alt="Visitor share change maps by evacuation status" />
-          <figcaption>
-            <strong>Figure 5.</strong> Visitor share change for Georgia census tracts,
-            separated by origins with (left) and without (right) mandatory evacuation
-            orders in Florida. Darker colors indicate higher quantiles of visitor share
-            change.
           </figcaption>
         </figure>
       </div>
@@ -295,6 +302,52 @@
         </p>
       </div>
     </section>
+
+    <!-- Discussion & Conclusion -->
+   <section id="discussion" class="section">
+     <div class="container">
+       <h2>Discussion &amp; Conclusion</h2>
+       <p>
+         Taken together, the results show that evacuation destinations are not chosen
+         randomly or evenly across space. Instead, evacuees cluster in a relatively
+         small set of tracts that combine strong social ties to Florida, good regional
+         accessibility, and substantial hospitality infrastructure. These places
+         effectively function as informal hubs in the evacuation network.
+       </p>
+       <p>
+         From a planning perspective, this means that managing hurricane evacuations is
+         not only about moving people out of high-risk areas, but also about preparing
+         the locations that are most likely to receive them. Enhancing shelter capacity,
+         fuel availability, and logistical support in socially connected, amenity-rich,
+         and well-connected destinations can reduce congestion and strain on local
+         systems during future events.
+       </p>
+
+       <figure class="card">
+         <img src="img/Concept.png" alt="Concept" style="max-width: 700px"/>
+         <figcaption>
+           <strong>Figure 9.</strong> Receiving places' infrastructure demand will be shaped by population influx during disasters.
+         </figcaption>
+       </figure>
+
+       <p>
+         The analysis also highlights important equity considerations. Many of the
+         high-visitor destinations are wealthier urban and suburban tracts, while rural
+         and lower-income areas play a more limited role in absorbing evacuees. Future
+         work could examine how resource availability, housing markets, and information
+         access affect who is able to reach safer, better-served destinations and who is
+         left with fewer options.
+       </p>
+       <p>
+         Finally, the study illustrates the value of combining large-scale mobility data
+         with social network measures and distribution-sensitive models such as quantile
+         regression. This framework can be extended to other hazards, receiving regions,
+         and time periods to better understand how human mobility contributes to
+         regional resilience in a changing climate.
+       </p>
+     </div>
+   </section>
+
 
     <!-- Paper info -->
     <section id="paper" class="section">
