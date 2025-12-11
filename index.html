@@ -15,6 +15,7 @@
      class="site-logo" />
 
     <div class="side-nav-top">
+      <a href="#title">Title</a>
       <a href="#overview">Overview</a>
       <a href="#spatial-patterns">Spatial Patterns</a>
       <a href="#data">Data &amp; Study Area</a>
@@ -27,21 +28,19 @@
     </div>
 
     <div class="side-nav-footer">
-      <img src="img/profile.jpg" alt="Profile photo" class="profile-pic" />
-      <div class="profile-text">
-        <div class="profile-name">Chaeyeon Han</div>
-        <div class="profile-date">Created: 2025</div>
-      </div>
+      <a href="https://bravoyourlif.github.io" target="_blank" class="github-link">
+        <img src="img/github-mark.png" alt="GitHub logo" class="github-logo" />
+        <span class="github-text">bravoyourlif.github.io</span>
+      </a>
     </div>
   </nav>
 
   <!-- Main content -->
   <main class="main-content">
-    <h1 class="site-title">Where Do Evacuees Go? Understanding Evacuation Destinations in Georgia during Hurricane Milton </h1>
+    <h1 id="title" class="site-title">Where Do Evacuees Go? Understanding Evacuation Destinations in Georgia during Hurricane Milton </h1>
     <h4> <strong>Authors </strong>: Chaeyeon Han, Subhrajit Guhathakurta</br>
       School of City and Regional Planning, Georgia Institute of Technology, Atlanta, GA, USA</h4>
-    <!-- Overview -->
-    <!-- Overview -->
+
     <section id="overview" class="section">
       <div class="container overview-layout">
         <div class="overview-text">
@@ -135,14 +134,19 @@
           These areas become the primary origins of evacuees traveling toward Georgia.
         </p>
 
-        <figure class="card">
-          <img src="img/Image3.png" alt="Hurricane Milton trajectory and evacuation zones" />
-          <figcaption>
-            <strong>Figure 2.</strong> Hurricane Milton trajectory, forecast cone, and
-            census tracts in Florida under mandatory evacuation orders. These evacuation
-            zones are key origins of evacuees heading to Georgia.
-          </figcaption>
-        </figure>
+        <div class="container">
+            <h2>Mandatory Evacuation Zone Map (Hurricane Milton)</h2>
+            <p>You can explore the evacuation patterns interactively below.</p>
+
+            <div class="map-iframe-wrapper">
+              <iframe
+                src="maps/evaczone.html"
+                title="Evacuation Zone Map"
+                frameborder="0"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
       </div>
     </section>
 

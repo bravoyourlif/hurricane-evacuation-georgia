@@ -77,25 +77,30 @@ body {
   gap: 8px;
   font-size: 0.8rem;
 }
-
-.profile-pic {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
+/* GitHub link in sidebar */
+.github-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #333;
+  font-size: 0.85rem;
 }
 
-.profile-text {
-  line-height: 1.3;
+.github-logo {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  opacity: 0.9;
 }
 
-.profile-name {
-  font-weight: 600;
+.github-text {
+  line-height: 1.2;
+  font-weight: 500;
 }
 
-.profile-date {
-  color: #777;
-  font-size: 0.75rem;
+.github-link:hover .github-text {
+  text-decoration: underline;
 }
 
 /* Overview layout: text + image side by side */
@@ -158,6 +163,23 @@ body {
 
 .section + .section {
   border-top: 1px solid #e0e0e0;
+}
+.map-iframe-wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 70%;  /* controls map height */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.map-iframe-wrapper iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 /* Card-style figures */
