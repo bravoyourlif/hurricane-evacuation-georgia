@@ -26,6 +26,31 @@ body {
   margin: 0 auto;
   padding: 0.75rem 1rem;
 }
+/* Side-by-side map cards */
+.map-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+  margin-left: 0px;
+}
+
+.map-iframe-wrapper {
+  position: relative;
+  /*width: 100%;*/
+  height: 1200px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+  margin-left: 0px;
+}
+
+.map-iframe-wrapper iframe {
+  position: absolute;
+  /*width: 100%;*/
+  /*height: 100%;*/
+  border: 0;
+}
 
 /* Fixed side nav */
 .side-nav {

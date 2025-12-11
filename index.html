@@ -21,8 +21,8 @@
       <a href="#data">Data &amp; Study Area</a>
       <a href="#visitor-change">Visitor Share Change</a>
       <a href="#quantile-regression">Quantile Regression</a>
-      <a href="#model-fit">Model Fit</a>
       <a href="#determinants">Determinants</a>
+      <a href="#model-fit">Model Fit</a>
       <a href="#discussion">Conclusion</a>
       <a href="#paper">Paper</a>
     </div>
@@ -94,16 +94,26 @@
         <p>
           Read below for our data, study area, and regression analyses results for determinants of destination choice!
         </p>
-
-        <figure class="card">
-          <img src="img/Image5.png" alt="Visitor share change maps by evacuation status" />
-          <figcaption>
-            <strong>Figure 5.</strong> Visitor share change for Georgia census tracts,
-            separated by origins with (left) and without (right) mandatory evacuation
-            orders in Florida. Darker colors indicate higher quantiles of visitor share
-            change.
-          </figcaption>
-        </figure>
+      </div>
+      <div class="map-card-grid">
+        <!-- Left card: Evacuation Zone -->
+        <div class="map-iframe-wrapper">
+          <iframe
+            src="maps/evac-patterns.html"
+            title="Evacuation Zone Origin's Destinations"
+            frameborder="0"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <!-- Right card: Non-Evacuation Zone -->
+        <div class="map-iframe-wrapper">
+          <iframe
+            src="maps/nonevac-patterns.html"
+            title="Non Evacuation Zone Origin's Destinations"
+            frameborder="0"
+            allowfullscreen>
+          </iframe>
+        </div>
       </div>
     </section>
     <!-- Data & Study Area -->
@@ -119,7 +129,7 @@
         </p>
 
         <figure class="card">
-          <img src="img/Image1.png" alt="Time series of observed and predicted visits" style="max-width=900px;"/>
+          <img src="img/Image1.png" alt="Time series of observed and predicted visits" style="max-width:800px;"/>
           <figcaption>
             <strong>Figure 1.</strong> Observed versus predicted total visits in Florida
             before, during, and after Hurricane Milton. Shaded periods highlight weeks
@@ -196,6 +206,9 @@
               social ties, accessibility, or amenities changes between lightly affected areas
               and those experiencing extreme increases in evacuee arrivals.
             </p>
+            <figure class="card">
+              <img src="img/quantile.png" alt="Quantile regression" style="max-width:600px"/>
+            </figure>
             <p>
               This approach is well suited to evacuation data for several reasons:
             </p>
@@ -232,6 +245,58 @@
             </figure>
           </div>
         </section>
+
+    <!-- Determinants -->
+    <section id="determinants" class="section">
+      <div class="container">
+        <h2>🔍 Determinants of Visitor Concentration</h2>
+        <p>
+          The quantile regression results provide a detailed picture of what drives
+          evacuees toward particular destinations in Georgia.
+        </p>
+        <figure class="card">
+          <img src="img/Image7-1.png" alt="Quantile regression coefficients for key variables" style="max-width:600px"/>
+          <figcaption>
+            <strong>Figure 7-1.</strong> Quantile regression coefficients for social ties across
+            the visitor share distribution. Shaded bands show confidence intervals.
+          </figcaption>
+        </figure>
+        <p>
+          <strong>Social ties</strong> play a central role: tracts with stronger
+          social connections to Florida origins attract significantly
+          more evacuees, particularly at upper quantiles. This highlights how personal
+          networks guide destination choice when uncertainty is high.
+        </p>
+        <figure class="card">
+          <img src="img/Image7-3.png" alt="Quantile regression coefficients for key variables" style="max-width:950px"/>
+          <figcaption>
+            <strong>Figure 7-2.</strong> Quantile regression coefficients for distance measures across
+            the visitor share distribution. Shaded bands show confidence intervals.
+          </figcaption>
+        </figure>
+        <p>
+          <strong>Distance and accessibility</strong> measures also matter. Greater
+          distance from the storm’s trajectory is associated with slightly higher visitor
+          shares, reflecting risk avoidance. Proximity to POI centers and to
+          the Atlanta airport has strong positive effects in higher quantiles.
+        </p>
+        <figure class="card">
+          <img src="img/Image7-2.png" alt="Quantile regression coefficients for key variables" style="max-width:950px"/>
+          <figcaption>
+            <strong>Figure 7-3.</strong> Quantile regression coefficients for amenity counts across
+            the visitor share distribution. Shaded bands show confidence intervals.
+          </figcaption>
+        </figure>
+        <p>
+          Finally, <strong>amenities and local context</strong> shape concentration.
+          Hospitality infrastructure—especially hotels and malls—is positively associated
+          with visitor surges, while gas stations show weaker or even negative
+          relationships at the top of the distribution, possibly reflecting congestion or
+          fuel shortages. Higher-income destination tracts also tend to experience larger
+          increases among the most-visited locations.
+        </p>
+      </div>
+    </section>
     <!-- Model Fit -->
     <section id="model-fit" class="section">
       <div class="container">
@@ -253,60 +318,6 @@
         </figure>
       </div>
     </section>
-
-    <!-- Determinants -->
-    <section id="determinants" class="section">
-      <div class="container">
-        <h2>🔍 Determinants of Visitor Concentration</h2>
-        <p>
-          The quantile regression results provide a detailed picture of what drives
-          evacuees toward particular destinations in Georgia.
-        </p>
-        <figure class="card">
-          <img src="img/Image7-1.png" alt="Quantile regression coefficients for key variables" style="max-width:600px"/>
-          <figcaption>
-            <strong>Figure 7-1.</strong> Quantile regression coefficients for social ties across
-            the visitor share distribution. Shaded bands show confidence intervals.
-          </figcaption>
-        </figure>
-        <p>
-          <strong>Social ties</strong> play a central role: tracts with stronger
-          county-to-county social connections to Florida origins attract significantly
-          more evacuees, particularly at upper quantiles. This highlights how personal
-          networks guide destination choice when uncertainty is high.
-        </p>
-        <figure class="card">
-          <img src="img/Image7-3.png" alt="Quantile regression coefficients for key variables" style="max-width:950px"/>
-          <figcaption>
-            <strong>Figure 7-2.</strong> Quantile regression coefficients for distance measures across
-            the visitor share distribution. Shaded bands show confidence intervals.
-          </figcaption>
-        </figure>
-        <p>
-          <strong>Distance and accessibility</strong> measures also matter. Greater
-          distance from the storm’s trajectory is associated with slightly higher visitor
-          shares, reflecting risk avoidance. Proximity to major economic centers and to
-          the Atlanta airport has strong positive effects in higher quantiles, suggesting
-          that evacuees prefer well-connected locations.
-        </p>
-        <figure class="card">
-          <img src="img/Image7-2.png" alt="Quantile regression coefficients for key variables" style="max-width:950px"/>
-          <figcaption>
-            <strong>Figure 7-3.</strong> Quantile regression coefficients for amenity counts across
-            the visitor share distribution. Shaded bands show confidence intervals.
-          </figcaption>
-        </figure>
-        <p>
-          Finally, <strong>amenities and local context</strong> shape concentration.
-          Hospitality infrastructure—especially hotels and malls—is positively associated
-          with visitor surges, while gas stations show weaker or even negative
-          relationships at the top of the distribution, possibly reflecting congestion or
-          fuel shortages. Higher-income destination tracts also tend to experience larger
-          increases among the most-visited locations.
-        </p>
-      </div>
-    </section>
-
     <!-- Discussion & Conclusion -->
    <section id="discussion" class="section">
      <div class="container">
@@ -353,7 +364,7 @@
    </section>
 
 
-    <!-- Paper info -->
+    <!-- Paper info
     <section id="paper" class="section">
       <div class="container">
         <h2>Paper</h2>
@@ -365,13 +376,12 @@
           <strong>Authors:</strong> Chaeyeon Han, Subhrajit Guhathakurta
         </p>
         <p>
-          <!-- Update the href once you have a PDF online or in a files/ folder -->
           <a href="files/IJDRR_revised_manuscript_v2.pdf" target="_blank">
             Download manuscript (PDF)
           </a>
         </p>
       </div>
-    </section>
+    </section>-->
   </main>
 
   <!-- Footer -->
