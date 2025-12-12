@@ -137,7 +137,7 @@
         <h2>🗺️ Data &amp; Study Area</h2>
         <p>
           We draw on anonymized, device-based mobility traces aggregated to the census-tract level
-          to estimate weekly visitation flows from Florida to Georgia. Baseline mobility conditions
+          to estimate weekly visitation flows from Florida to Georgia. Following the practice from existing studies (Anyidoho et al., 2023; Hong & Frias-Martinez, 2020), baseline mobility conditions
           are captured by weekday-specific average visit counts three weeks prior to the hurricane period, which
           serve as a prediction of baseline activity. Deviations from these predicted values reveal
           anomalous increases associated with Hurricane Milton.
@@ -154,7 +154,7 @@
 
         <p>
           Florida Division of Emergency Management (FDEM) organizes evacuation zones in Florida that differ in exposure to storm
-          surge and wind hazards. Hurricane Milton’s track intersect several
+          surge and wind hazards. Hurricane Milton’s track (<a href="https://www.nhc.noaa.gov/data/">NOAA's HURDAT2 Dataset</a>) intersect several
           of these zones. Based on news articles and county government agencies' announcements, we identified counties that issued mandatory evacuation orders for evacuation zones.
           These areas become the primary origins of evacuees traveling toward Georgia.
         </p>
@@ -230,12 +230,12 @@
             <ul>
               <li>
                 It captures <strong>heterogeneous effects</strong>, showing that some factors
-                matter mainly for high-visitor tracts rather than everywhere.
+                matter mainly for high-visitor tracts rather than everywhere.(Rodriguez & Yao, 2017)
               </li>
               <li>
                 It is more robust to <strong>outliers and heavy tails</strong> than mean-based
                 models, which is important when a few tracts receive a disproportionate number
-                of evacuees.
+                of evacuees. (Liao & Wang, 2012)
               </li>
               <li>
                 It does not require constant variance of errors, making it appropriate when
@@ -375,7 +375,25 @@
      </div>
    </section>
 
-
+   <section id="reference" class="section">
+     <div class="container">
+       <h2>References</h2>
+       <p>Anyidoho, P. K., Ju, X., Davidson, R. A., & Nozick, L. K. (2023).
+         A machine learning approach for predicting hurricane evacuee destination location using smartphone location data.
+         Computational Urban Science, 3(1), 30. <a href="https://doi.org/10.1007/s43762-023-00102-0">https://doi.org/10.1007/s43762-023-00102-0</a>
+       </p>
+       <p>Hong, L., & Frias-Martinez, V. (2020). Modeling and predicting evacuation flows during hurricane Irma.
+         EPJ Data Science, 9(1), 29. <a href="https://doi.org/10.1140/epjds/s13688-020-00247-6">https://doi.org/10.1140/epjds/s13688-020-00247-6</a>
+       </p>
+       <p>Liao, W.-C., & Wang, X. (2012). Hedonic house prices and spatial quantile regression.
+         Journal of Housing Economics, 21(1), 16–27.
+         <a href="https://doi.org/10.1016/j.jhe.2011.11.001">https://doi.org/10.1016/j.jhe.2011.11.001</a>
+       </p>
+       <p>Rodriguez, R., & Yao, Y. (2017). Five Things You Should Know about Quantile Regression (Paper SAS525-2017). SAS Institute Inc.
+         <a href="https://support.sas.com/resources/papers/proceedings17/SAS0525-2017.pdf">https://support.sas.com/resources/papers/proceedings17/SAS0525-2017.pdf</a>
+       </p>
+     </div>
+   </section>
     <!-- Paper info
     <section id="paper" class="section">
       <div class="container">
