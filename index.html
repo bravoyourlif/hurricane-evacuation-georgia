@@ -70,7 +70,8 @@
           <img src="img/Daytona_beach.jpg"
                alt="Heavy evacuation traffic on a Florida highway"/>
           <figcaption>
-            Traffic congestion on a Florida highway during hurricane evacuation.
+            Traffic congestion on a Florida highway during hurricane evacuation. (<a href="https://www.news-journalonline.com/story/news/state/2019/08/31/florida-not-planning-one-way-traffic-for-possible-hurricane-dorian-evacuees/4297191007/
+">Source</a>)
           </figcaption>
         </figure>
       </div>
@@ -91,13 +92,11 @@
           non-mandatory areas tend to be distributed more broadly across the state.
         </p>
 
-        <p>
-          Read below for our data, study area, and regression analyses results for determinants of destination choice!
-        </p>
       </div>
       <div class="map-card-grid">
         <!-- Left card: Evacuation Zone -->
         <div class="map-iframe-wrapper">
+          <p>Destinations of People from Mandatory Evacuation Zone</p>
           <iframe
             src="maps/evac-patterns.html"
             title="Evacuation Zone Origin's Destinations"
@@ -107,6 +106,7 @@
         </div>
         <!-- Right card: Non-Evacuation Zone -->
         <div class="map-iframe-wrapper">
+          <p>Destinations of People NOT from Mandatory Evacuation Zone</p>
           <iframe
             src="maps/nonevac-patterns.html"
             title="Non Evacuation Zone Origin's Destinations"
@@ -115,6 +115,20 @@
           </iframe>
         </div>
       </div>
+
+      <p>
+        The destinations of population visiting from the mandatory evacuation zones primarily aligned with the Georgia State Highway systems and large cities, such as Augusta, Savannah, and Macon (Figure 1).
+      </p>
+      <p>
+        Read below for our data, study area, and regression analyses results for determinants of destination choice!
+      </p>
+
+      <figure class="card">
+        <img src="img/destinations.png" alt="Destinations Follow Highway & Large Cities" style="max-width:800px;"/>
+        <figcaption>
+          <strong>Figure 1.</strong> Observed Destinations are located alongside GA highway system and large cities.
+        </figcaption>
+      </figure>
     </section>
     <!-- Data & Study Area -->
     <section id="data" class="section">
@@ -131,7 +145,7 @@
         <figure class="card">
           <img src="img/Image1.png" alt="Time series of observed and predicted visits" style="max-width:800px;"/>
           <figcaption>
-            <strong>Figure 1.</strong> Observed versus predicted total visits in Florida
+            <strong>Figure 2.</strong> Observed versus predicted total visits in Florida
             before, during, and after Hurricane Milton. Shaded periods highlight weeks
             with hurricane-related disruptions.
           </figcaption>
@@ -145,7 +159,7 @@
         </p>
 
         <div class="container">
-            <h2>Mandatory Evacuation Zone Map (Hurricane Milton)</h2>
+            <h2>Figure 3. Mandatory Evacuation Zone Map (Hurricane Milton)</h2>
             <p>You can explore the evacuation patterns interactively below.</p>
 
             <div class="map-iframe-wrapper">
@@ -180,7 +194,7 @@
         <figure class="card">
           <img src="img/Image2.png" alt="Histogram of visitor share change in Georgia tracts" />
           <figcaption>
-            <strong>Figure 3.</strong> Distribution of visitor share change for Georgia
+            <strong>Figure 4.</strong> Distribution of visitor share change for Georgia
             census tracts during Hurricane Milton. A small number of tracts show extreme
             increases in visitor share.
           </figcaption>
@@ -193,7 +207,7 @@
           <div class="container">
             <h2>🛠️ Quantile Regression Analysis</h2>
             <p>
-              As seen in Figure 3, the distribution of visitor share change is highly skewed. However, a standard
+              As seen in Figure 4, the distribution of visitor share change is highly skewed. However, a standard
               linear regression focuses on the mean and would mostly describe what happens in
               “typical” tracts, potentially missing the dynamics that matter most for
               evacuation response, the places that become hotspots.
@@ -257,7 +271,7 @@
         <figure class="card">
           <img src="img/Image7-1.png" alt="Quantile regression coefficients for key variables" style="max-width:600px"/>
           <figcaption>
-            <strong>Figure 7-1.</strong> Quantile regression coefficients for social ties across
+            <strong>Figure 5-1.</strong> Quantile regression coefficients for social ties across
             the visitor share distribution. Shaded bands show confidence intervals.
           </figcaption>
         </figure>
@@ -270,7 +284,7 @@
         <figure class="card">
           <img src="img/Image7-3.png" alt="Quantile regression coefficients for key variables" style="max-width:950px"/>
           <figcaption>
-            <strong>Figure 7-2.</strong> Quantile regression coefficients for distance measures across
+            <strong>Figure 5-2.</strong> Quantile regression coefficients for distance measures across
             the visitor share distribution. Shaded bands show confidence intervals.
           </figcaption>
         </figure>
@@ -283,16 +297,15 @@
         <figure class="card">
           <img src="img/Image7-2.png" alt="Quantile regression coefficients for key variables" style="max-width:950px"/>
           <figcaption>
-            <strong>Figure 7-3.</strong> Quantile regression coefficients for amenity counts across
+            <strong>Figure 5-3.</strong> Quantile regression coefficients for amenity counts across
             the visitor share distribution. Shaded bands show confidence intervals.
           </figcaption>
         </figure>
         <p>
           Finally, <strong>amenities and local context</strong> shape concentration.
-          Hospitality infrastructure—especially hotels and malls—is positively associated
+          Hospitality infrastructure, specifically hotels and malls, is positively associated
           with visitor surges, while gas stations show weaker or even negative
-          relationships at the top of the distribution, possibly reflecting congestion or
-          fuel shortages. Higher-income destination tracts also tend to experience larger
+          relationships at the top of the distribution. Higher-income destination tracts also tend to experience larger
           increases among the most-visited locations.
         </p>
       </div>
@@ -311,7 +324,7 @@
         <figure class="card">
           <img src="img/Image4.png" alt="Pseudo R-squared across quantiles" />
           <figcaption>
-            <strong>Figure 4.</strong> Pseudo R² of the quantile regression model across
+            <strong>Figure 6.</strong> Pseudo R² of the quantile regression model across
             quantiles of visitor share change. Fit improves for higher quantiles, where
             visitor concentration is most extreme.
           </figcaption>
@@ -341,7 +354,7 @@
        <figure class="card">
          <img src="img/Concept.png" alt="Concept" style="max-width: 700px"/>
          <figcaption>
-           <strong>Figure 9.</strong> Receiving places' infrastructure demand will be shaped by population influx during disasters.
+           <strong>Figure 7.</strong> Receiving places' infrastructure demand will be shaped by population influx during disasters.
          </figcaption>
        </figure>
 
